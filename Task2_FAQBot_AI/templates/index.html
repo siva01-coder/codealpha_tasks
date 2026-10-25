@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FAQBot AI - Intelligent College FAQ Assistant using NLP, TF-IDF, and Cosine Similarity Matching.">
+    <title>FAQBot AI — Intelligent College FAQ Assistant</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- APP HEADER -->
+        <header class="app-header">
+            <div class="header-brand">
+                <div class="logo-box">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        <circle cx="9" cy="10" r="1"></circle>
+                        <circle cx="12" cy="10" r="1"></circle>
+                        <circle cx="15" cy="10" r="1"></circle>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <h1>FAQBot AI</h1>
+                    <span class="subtitle">Intelligent College FAQ Assistant</span>
+                </div>
+            </div>
+            
+            <div class="header-controls">
+                <div class="status-badge" id="statusBadge" title="TF-IDF + Cosine Similarity Engine">
+                    <span class="status-dot"></span>
+                    <span class="status-text">NLP Engine Online</span>
+                </div>
+                <button id="toggleInspectorBtn" class="btn-secondary btn-icon" title="Toggle NLP Pipeline Inspector">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                    <span>NLP Inspector</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- MAIN LAYOUT: CHAT & EXPLORER -->
+        <main class="app-main">
+            <!-- LEFT PANEL: CHAT INTERFACE -->
+            <section class="chat-section">
+                <div class="chat-card">
+                    <!-- Chat Top Bar -->
+                    <div class="chat-header">
+                        <div class="chat-title-info">
+                            <h2>Assistant Conversation</h2>
+                            <p class="chat-status-desc">Ask questions in natural language. Powered by Scikit-Learn TF-IDF.</p>
+                        </div>
+                        <button id="clearChatBtn" class="btn-text" aria-label="Clear chat history">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 6h18"></path>
+                                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                            </svg>
+                            Clear Chat
+                        </button>
+                    </div>
+
+                    <!-- Chat Messages Stream -->
+                    <div class="chat-body" id="chatStream" role="log" aria-live="polite">
+                        <!-- Welcome message -->
+                        <div class="message-wrapper bot-message">
+                            <div class="bot-avatar">AI</div>
+                            <div class="message-content">
+                                <div class="message-bubble">
+                                    <p>Hello! I'm <strong>FAQBot AI</strong>, your intelligent college assistant. Ask me anything about admissions, academics, fees, scholarships, exams, placements, hostel, library, or campus regulations.</p>
+                                </div>
+                                <div class="message-meta">
+                                    <span class="meta-tag">System Initialized</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Suggested Questions Quick Bar -->
+                    <div class="suggestions-container" id="suggestionsContainer">
+                        <span class="suggestions-label">Suggested Questions:</span>
+                        <div class="suggestions-chips" id="suggestionsChips">
+                            <button class="chip" data-question="How can I apply for admission?">How can I apply for admission?</button>
+                            <button class="chip" data-question="What is the attendance requirement?">What is the attendance requirement?</button>
+                            <button class="chip" data-question="When are semester exams conducted?">When are semester exams conducted?</button>
+                            <button class="chip" data-question="How can I apply for scholarships?">How can I apply for scholarships?</button>
+                            <button class="chip" data-question="Does the college provide internships?">Are internships available?</button>
+                        </div>
+                    </div>
+
+                    <!-- Chat Input Bar -->
+                    <div class="chat-footer">
+                        <form id="chatForm" class="chat-input-form" onsubmit="return false;">
+                            <div class="input-wrapper">
+                                <input type="text" id="userInput" placeholder="Ask your question (e.g. How do I join the college?)..." maxlength="2000" autocomplete="off" aria-label="Ask your question">
+                                <button type="submit" id="sendBtn" class="btn-primary" disabled aria-label="Send message">
+                                    <span>SEND</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                    </svg>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RIGHT PANEL: FAQ EXPLORER & CATEGORIES -->
+            <aside class="sidebar-section">
+                <!-- CATEGORY FILTER CARD -->
+                <div class="card category-card">
+                    <div class="card-header">
+                        <h3>Categories</h3>
+                        <span class="badge" id="categoryCount">0</span>
+                    </div>
+                    <div class="category-pills" id="categoryPills">
+                        <button class="pill active" data-category="All">All</button>
+                        <!-- Injected via JS -->
+                    </div>
+                </div>
+
+                <!-- BROWSE FAQ KNOWLEDGE BASE CARD -->
+                <div class="card explorer-card">
+                    <div class="card-header">
+                        <h3>Browse Knowledge Base</h3>
+                        <div class="search-box">
+                            <input type="text" id="faqSearchInput" placeholder="Filter FAQs..." aria-label="Search FAQs">
+                        </div>
+                    </div>
+                    <div class="faq-accordion-list" id="faqAccordionList">
+                        <!-- Injected via JS -->
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <!-- NLP PIPELINE INSPECTOR MODAL/PANEL -->
+        <div class="inspector-drawer" id="inspectorDrawer" aria-hidden="true">
+            <div class="drawer-header">
+                <div class="drawer-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    <h3>NLP Execution Inspector</h3>
+                </div>
+                <button id="closeInspectorBtn" class="btn-icon" aria-label="Close inspector">✕</button>
+            </div>
+            <div class="drawer-body">
+                <div class="pipeline-flow">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-details">
+                            <h4>Raw Query</h4>
+                            <code id="inspRawInput">No query executed yet.</code>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-details">
+                            <h4>Tokenization & Case Normalization</h4>
+                            <div class="tokens-list" id="inspTokens"></div>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-details">
+                            <h4>Stopword Removal & Lemmatization</h4>
+                            <code id="inspCleanText">-</code>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <div class="step-details">
+                            <h4>TF-IDF Vector Similarity</h4>
+                            <div class="vector-meta">
+                                <div>Method: <strong id="inspMethod">-</strong></div>
+                                <div>Similarity Score: <strong id="inspScore">-</strong></div>
+                                <div>Matching FAQ ID: <strong id="inspFaqId">-</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

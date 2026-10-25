@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VISIONTRACK AI — Real-Time Object Detection & Tracking System</title>
+    
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- HEADER -->
+        <header class="app-header">
+            <div class="header-brand">
+                <div class="brand-logo">
+                    <span class="logo-icon">❖</span>
+                    <h1>VISIONTRACK AI</h1>
+                </div>
+                <p class="brand-subtitle">Real-Time Object Detection & Tracking System • CodeAlpha Task 4</p>
+            </div>
+            <div class="header-status">
+                <div class="status-indicator" id="system-status-indicator">
+                    <span class="status-dot pulsating"></span>
+                    <span class="status-text" id="system-status-text">SYSTEM READY</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN DASHBOARD CONTENT -->
+        <main class="dashboard-grid">
+            
+            <!-- LEFT COLUMN: LIVE STREAM & VISUALIZATIONS -->
+            <section class="dashboard-column primary-column">
+                
+                <!-- VIDEO STREAM CARD -->
+                <div class="panel-card video-card">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span class="icon">◉</span>
+                            <h2>LIVE DETECTION FEED</h2>
+                        </div>
+                        <div class="stream-badge offline" id="stream-badge">
+                            <span class="badge-dot"></span>
+                            <span id="stream-badge-text">OFFLINE</span>
+                        </div>
+                    </div>
+
+                    <div class="video-wrapper">
+                        <!-- Stream Viewport -->
+                        <div class="video-container" id="video-container">
+                            <img id="video-stream" src="" alt="Live Object Detection & Tracking Stream" style="display: none;">
+                            
+                            <!-- Offline / Stopped Placeholder -->
+                            <div class="video-placeholder" id="video-placeholder">
+                                <div class="placeholder-content">
+                                    <div class="placeholder-icon">📷</div>
+                                    <h3>VIDEO FEED INACTIVE</h3>
+                                    <p>Select a video source below and click <strong>START DETECTION</strong> to begin real-time YOLO + Deep SORT tracking.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stream Controls Toolbar -->
+                        <div class="video-toolbar">
+                            <div class="toolbar-group">
+                                <button type="button" class="btn btn-secondary btn-sm" id="btn-snapshot" disabled>
+                                    <span>📸</span> TAKE SNAPSHOT
+                                </button>
+                                <button type="button" class="btn btn-secondary btn-sm" id="btn-record" disabled>
+                                    <span id="record-icon">⏺</span> <span id="record-text">START RECORDING</span>
+                                </button>
+                            </div>
+                            <div class="toolbar-group">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="chk-trails" checked>
+                                    <span class="checkmark"></span>
+                                    <span class="label-text">Show Tracking Trails</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OBJECT DISTRIBUTION BAR CHART -->
+                <div class="panel-card chart-card">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span class="icon">📊</span>
+                            <h2>CLASS DISTRIBUTION & DETECTED COUNTS</h2>
+                        </div>
+                        <span class="panel-tag" id="active-class-count">0 Classes Active</span>
+                    </div>
+                    <div class="chart-container" id="chart-container">
+                        <div class="empty-chart-msg">No objects currently detected. Start stream to view counts.</div>
+                    </div>
+                </div>
+                
+            </section>
+
+            <!-- RIGHT COLUMN: METRICS, CONTROLS & EVENT LOG -->
+            <section class="dashboard-column secondary-column">
+                
+                <!-- SYSTEM TELEMETRY GRID -->
+                <div class="panel-card metrics-card">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span class="icon">⚡</span>
+                            <h2>SYSTEM TELEMETRY</h2>
+                        </div>
+                    </div>
+                    
+                    <div class="metrics-grid">
+                        <div class="metric-tile">
+                            <span class="metric-label">DETECTION</span>
+                            <span class="metric-value status-val" id="metric-status">STOPPED</span>
+                        </div>
+                        <div class="metric-tile">
+                            <span class="metric-label">TRACKING</span>
+                            <span class="metric-value" id="metric-tracker">DEEP SORT</span>
+                        </div>
+                        <div class="metric-tile">
+                            <span class="metric-label">DEVICE</span>
+                            <span class="metric-value" id="metric-device">CPU</span>
+                        </div>
+                        <div class="metric-tile">
+                            <span class="metric-label">REAL FPS</span>
+                            <span class="metric-value highlight" id="metric-fps">0.0</span>
+                        </div>
+                        <div class="metric-tile">
+                            <span class="metric-label">ACTIVE OBJECTS</span>
+                            <span class="metric-value highlight" id="metric-objects">0</span>
+                        </div>
+                        <div class="metric-tile">
+                            <span class="metric-label">TOTAL TRACKS</span>
+                            <span class="metric-value" id="metric-total-tracks">0</span>
+                        </div>
+                        <div class="metric-tile full-width-tile">
+                            <span class="metric-label">INFERENCE LATENCY</span>
+                            <span class="metric-value" id="metric-latency">0.0 ms</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTROLS & SETTINGS -->
+                <div class="panel-card controls-card">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span class="icon">⚙</span>
+                            <h2>STREAM & TRACKING CONTROLS</h2>
+                        </div>
+                    </div>
+
+                    <!-- SOURCE SELECTOR -->
+                    <div class="control-section">
+                        <label class="section-label">SELECT VIDEO SOURCE</label>
+                        <div class="source-tabs">
+                            <button type="button" class="tab-btn active" id="tab-webcam">
+                                📷 USE WEBCAM
+                            </button>
+                            <button type="button" class="tab-btn" id="tab-upload">
+                                📁 UPLOAD VIDEO
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- FILE UPLOADER (Hidden by default until Upload Tab selected) -->
+                    <div class="control-section upload-section" id="upload-section" style="display: none;">
+                        <label class="section-label">UPLOAD VIDEO FILE (.MP4, .AVI, .MOV, .MKV)</label>
+                        <div class="dropzone" id="dropzone">
+                            <input type="file" id="video-file-input" accept=".mp4,.avi,.mov,.mkv">
+                            <div class="dropzone-content">
+                                <span class="upload-icon">📤</span>
+                                <p id="upload-file-label">Click to select video or drag & drop</p>
+                                <span class="upload-hint">Max file size: 200MB</span>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary full-width" id="btn-upload-file" disabled>
+                            UPLOAD & PREPARE
+                        </button>
+                    </div>
+
+                    <!-- ACTION BUTTONS -->
+                    <div class="control-section action-buttons">
+                        <button type="button" class="btn btn-primary full-width" id="btn-start">
+                            <span>▶</span> START DETECTION
+                        </button>
+                        <button type="button" class="btn btn-danger full-width" id="btn-stop" disabled>
+                            <span>■</span> STOP DETECTION
+                        </button>
+                    </div>
+
+                    <!-- CONFIDENCE SLIDER -->
+                    <div class="control-section">
+                        <div class="slider-header">
+                            <label class="section-label" for="slider-confidence">DETECTION CONFIDENCE THRESHOLD</label>
+                            <span class="slider-val" id="val-confidence">40%</span>
+                        </div>
+                        <div class="range-wrapper">
+                            <input type="range" id="slider-confidence" min="10" max="90" value="40" step="1">
+                        </div>
+                    </div>
+
+                    <!-- CLASS FILTERS -->
+                    <div class="control-section">
+                        <div class="filter-header">
+                            <label class="section-label">DETECTED CLASSES FILTER</label>
+                            <div class="filter-actions">
+                                <button type="button" class="text-link" id="btn-select-all-classes">Select All</button>
+                                <button type="button" class="text-link" id="btn-clear-classes">Clear</button>
+                            </div>
+                        </div>
+                        
+                        <div class="class-checkbox-grid">
+                            {% for cls in coco_classes[:16] %}
+                            <label class="class-chip">
+                                <input type="checkbox" class="cls-checkbox" value="{{ cls }}" checked>
+                                <span>{{ cls.title() }}</span>
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- DETECTION EVENT LOG -->
+                <div class="panel-card log-card">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span class="icon">📜</span>
+                            <h2>REAL-TIME EVENT LOG</h2>
+                        </div>
+                        <span class="panel-tag">Latest 20 Events</span>
+                    </div>
+                    <div class="event-log-container" id="event-log">
+                        <div class="log-entry system-msg">10:00:00 — System initialized. Ready to process feed.</div>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="app-footer">
+            <p>VISIONTRACK AI • Built with Flask, Ultralytics YOLO & Deep SORT • CodeAlpha AI Task 4</p>
+        </footer>
+    </div>
+
+    <!-- ERROR NOTIFICATION BANNER -->
+    <div class="notification-toast" id="notification-toast">
+        <span class="toast-icon">⚠️</span>
+        <span class="toast-message" id="toast-message">Error message goes here</span>
+        <button type="button" class="toast-close" id="btn-close-toast">&times;</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

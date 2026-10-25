@@ -1,0 +1,317 @@
+[
+  {
+    "id": 1,
+    "category": "Admissions",
+    "question": "How can I apply for admission?",
+    "answer": "Students can apply online through our official college admission portal during the designated admission window. You must fill out the application form, upload mandatory documents, and pay the application fee.",
+    "keywords": ["admission", "apply", "application", "join", "join college", "joining", "enroll", "enrollment", "take admission", "seek admission", "form", "registration", "portal"]
+  },
+  {
+    "id": 2,
+    "category": "Admissions",
+    "question": "What are the eligibility criteria for undergraduate programs?",
+    "answer": "Applicants must have passed their 10+2 higher secondary examination with Physics, Chemistry, and Mathematics (PCM) securing a minimum aggregate percentage (typically 50-60% depending on category) from a recognized board.",
+    "keywords": ["eligibility", "criteria", "requirements", "10+2", "marks", "percentage", "undergraduate", "ug", "qualification"]
+  },
+  {
+    "id": 3,
+    "category": "Admissions",
+    "question": "What documents are required during admission confirmation?",
+    "answer": "Required documents include 10th and 12th mark sheets, transfer certificate (TC), conduct certificate, entrance exam rank card, passport-size photographs, identity proof (Aadhaar), and category/caste certificate if applicable.",
+    "keywords": ["documents", "certificates", "verification", "marksheets", "aadhaar", "transfer certificate", "needed", "upload"]
+  },
+  {
+    "id": 4,
+    "category": "Admissions",
+    "question": "Is there a management quota or direct admission option?",
+    "answer": "Yes, a specified percentage of seats is allocated under the management/institutional quota as per government guidelines. Candidates interested in direct admission should contact the Admissions Office directly.",
+    "keywords": ["management quota", "direct admission", "institutional seat", "quota", "seat allocation"]
+  },
+  {
+    "id": 5,
+    "category": "Courses",
+    "question": "What engineering branches are offered at the college?",
+    "answer": "Our college offers B.Tech/B.E. degrees in Computer Science & Engineering, Information Technology, Electronics & Communication, Electrical & Electronics, Mechanical Engineering, and Civil Engineering.",
+    "keywords": ["engineering branches", "courses", "btech", "be", "specialization", "streams", "programs", "offered"]
+  },
+  {
+    "id": 6,
+    "category": "Courses",
+    "question": "Are postgraduate programs like M.Tech or MBA available?",
+    "answer": "Yes, the institution offers M.Tech programs in specialized fields, MBA (Master of Business Administration), and MCA (Master of Computer Applications). Admission details are published on the academic portal.",
+    "keywords": ["mtech", "mba", "mca", "postgraduate", "pg", "masters", "higher studies"]
+  },
+  {
+    "id": 7,
+    "category": "Courses",
+    "question": "Can I change my engineering branch after the first year?",
+    "answer": "Branch change is permissible after the first year based on academic performance (CGPA), subject to availability of vacant seats in the desired branch and university regulations.",
+    "keywords": ["branch change", "change branch", "switch stream", "transfer branch", "cgpa criteria"]
+  },
+  {
+    "id": 8,
+    "category": "Courses",
+    "question": "What is the duration of undergraduate and postgraduate courses?",
+    "answer": "B.Tech/B.E. programs are 4 years (8 semesters) in duration. M.Tech and MBA programs are 2 years (4 semesters), and lateral entry B.Tech is 3 years (6 semesters).",
+    "keywords": ["duration", "years", "semesters", "course length", "how long", "time period"]
+  },
+  {
+    "id": 9,
+    "category": "Departments",
+    "question": "How can I contact the Department Head (HOD)?",
+    "answer": "Department Head contact details and office hours are available on the college website under respective department pages. Students can also visit the departmental staff room during working hours.",
+    "keywords": ["hod", "head of department", "contact hod", "department office", "staff room", "faculty email"]
+  },
+  {
+    "id": 10,
+    "category": "Departments",
+    "question": "What specialized research labs are in the Computer Science department?",
+    "answer": "The Computer Science Department houses advanced labs for AI/Machine Learning, Data Science, Cyber Security, Cloud Computing, and Software Engineering equipped with high-speed internet and modern hardware.",
+    "keywords": ["labs", "research labs", "computer science labs", "facilities", "ai lab", "coding lab"]
+  },
+  {
+    "id": 11,
+    "category": "Departments",
+    "question": "Where are departmental notice boards located?",
+    "answer": "Departmental notice boards are positioned near the primary entrance of each academic block and digital notices are regularly posted on the student intranet portal.",
+    "keywords": ["notice board", "notices", "announcements", "circulars", "updates"]
+  },
+  {
+    "id": 12,
+    "category": "Fees",
+    "question": "What is the tuition fee structure for engineering courses?",
+    "answer": "Tuition fees vary by branch, quota, and category. The detailed fee structure breakdown for the current academic session is published on the official college website under the Fee Details section.",
+    "keywords": ["fee structure", "tuition fee", "cost", "college fees", "payment", "annual fee", "per semester"]
+  },
+  {
+    "id": 13,
+    "category": "Fees",
+    "question": "How can I pay the college tuition fees?",
+    "answer": "Fees can be paid online via the college student portal using Net Banking, UPI, Credit/Debit Cards, or offline through a Bank Demand Draft (DD) drawn in favor of the college.",
+    "keywords": ["pay fee", "payment methods", "online fee payment", "demand draft", "dd", "net banking", "upi"]
+  },
+  {
+    "id": 14,
+    "category": "Fees",
+    "question": "What happens if I pay tuition fees after the due date?",
+    "answer": "A daily or weekly late fee fine is levied for payments made past the deadline. Continued non-payment may result in temporary withholding of exam hall tickets.",
+    "keywords": ["late fee", "fine", "penalty", "due date", "delay payment", "overdue"]
+  },
+  {
+    "id": 15,
+    "category": "Scholarships",
+    "question": "How can I apply for scholarships?",
+    "answer": "Eligible students can apply for merit-based, merit-cum-means, and government welfare scholarships through the college Scholarship Cell or state/national scholarship portals.",
+    "keywords": ["scholarship", "apply scholarship", "financial aid", "concession", "fee waiver", "stipend"]
+  },
+  {
+    "id": 16,
+    "category": "Scholarships",
+    "question": "What merit scholarships are available for top rankers?",
+    "answer": "Merit scholarships are awarded to students scoring top ranks in entrance exams or achieving a GPA above 9.0 in semester examinations, covering up to 50% of tuition fees.",
+    "keywords": ["merit scholarship", "gpa scholarship", "top rankers", "toppers", "reward", "gpa 9"]
+  },
+  {
+    "id": 17,
+    "category": "Scholarships",
+    "question": "Are government reservation scholarships supported?",
+    "answer": "Yes, government post-matric scholarships for SC/ST/OBC/EWS candidates are fully supported. The scholarship desk assists students with application verification and submission.",
+    "keywords": ["government scholarship", "sc st scholarship", "obc scholarship", "ews", "reservation fee waiver"]
+  },
+  {
+    "id": 18,
+    "category": "Attendance",
+    "question": "What is the minimum attendance requirement to appear for exams?",
+    "answer": "Students must maintain a minimum of 75% overall attendance in each course to be eligible to sit for semester end examinations as per academic regulations.",
+    "keywords": ["attendance", "minimum attendance", "attendance requirement", "75 percent", "percentage", "eligibility"]
+  },
+  {
+    "id": 19,
+    "category": "Attendance",
+    "question": "What happens if my attendance falls below 75%?",
+    "answer": "If attendance is between 65% and 74% due to medical reasons or valid emergencies, condonation may be granted upon submitting proof. Below 65%, students are detained from writing semester exams.",
+    "keywords": ["low attendance", "below 75", "condonation", "detained", "shortage", "medical certificate", "fall below"]
+  },
+  {
+    "id": 20,
+    "category": "Attendance",
+    "question": "How can I track my daily class attendance?",
+    "answer": "Students can track real-time attendance status by logging into the Student ERP / Management Portal or using the official campus mobile app.",
+    "keywords": ["track attendance", "check attendance", "erp portal", "attendance status", "daily attendance"]
+  },
+  {
+    "id": 21,
+    "category": "Examinations",
+    "question": "When are semester exams conducted?",
+    "answer": "Odd semester examinations are typically held in November/December, while even semester examinations occur in April/May. Detailed timetables are published 3 weeks prior.",
+    "keywords": ["semester exams", "exam date", "when are exams", "examination schedule", "midterm", "finals"]
+  },
+  {
+    "id": 22,
+    "category": "Examinations",
+    "question": "How are internal assessment marks calculated?",
+    "answer": "Internal evaluation (typically 30-40% weightage) includes mid-term tests, lab practicals, assignments, class presentations, and attendance regularity.",
+    "keywords": ["internal marks", "midterm exam", "assessment", "weightage", "assignments", "practical marks"]
+  },
+  {
+    "id": 23,
+    "category": "Examinations",
+    "question": "How do I apply for supplementary or backlog examinations?",
+    "answer": "Students with backlogs can register for supplementary exams through the Examination Cell portal by submitting the supplementary exam form and paying the prescribed per-subject fee.",
+    "keywords": ["backlog", "supplementary exam", "supply exam", "re-exam", "failed subject", "clear backlog"]
+  },
+  {
+    "id": 24,
+    "category": "Results",
+    "question": "Where and when are semester results published?",
+    "answer": "Semester exam results are declared on the official Controller of Examinations portal within 4-6 weeks after the completion of exams. Students can view results using their hall ticket number.",
+    "keywords": ["results", "semester result", "gpa", "cgpa", "marksheet", "declare result", "grade sheet"]
+  },
+  {
+    "id": 25,
+    "category": "Results",
+    "question": "How can I apply for answer script revaluation or re-totalling?",
+    "answer": "Students dissatisfied with their grades can apply for paper revaluation or photocopy of answer script within 15 days of result declaration by paying the evaluation fee.",
+    "keywords": ["revaluation", "re-totalling", "recheck paper", "answer script", "grade correction", "recounting"]
+  },
+  {
+    "id": 26,
+    "category": "Placements",
+    "question": "Does the college have a campus placement cell?",
+    "answer": "Yes, our Training & Placement Cell (TPC) connects students with top IT, core engineering, and corporate recruiters, organizing campus recruitment drives throughout final year.",
+    "keywords": ["placement", "campus placement", "placement cell", "tpc", "jobs", "hiring", "recruiters", "companies"]
+  },
+  {
+    "id": 27,
+    "category": "Placements",
+    "question": "What is the average placement package and top recruiter list?",
+    "answer": "Top recruiters include major tech companies, MNCs, and core engineering firms. The average package ranges between 5 to 8 LPA, with top offers reaching 20+ LPA for deserving candidates.",
+    "keywords": ["placement package", "average salary", "highest package", "lpa", "top recruiters", "placement statistics"]
+  },
+  {
+    "id": 28,
+    "category": "Placements",
+    "question": "What placement eligibility criteria must students fulfill?",
+    "answer": "Generally, students must maintain a minimum CGPA of 6.0 or 6.5 with no active backlogs to be eligible for major campus placement recruitment drives.",
+    "keywords": ["placement eligibility", "cgpa criteria for jobs", "backlog policy placements", "job eligibility"]
+  },
+  {
+    "id": 29,
+    "category": "Internships",
+    "question": "Are internships mandatory for engineering students?",
+    "answer": "Yes, industrial internships or practical training are a mandatory academic requirement during 3rd and 4th year semesters to gain real-world industry experience.",
+    "keywords": ["internship", "internships", "mandatory internship", "industrial training", "summer internship", "stipend"]
+  },
+  {
+    "id": 30,
+    "category": "Internships",
+    "question": "Does the college provide internship assistance and NOC certificates?",
+    "answer": "The Placement Cell assists in securing internships and issues official No Objection Certificates (NOC) required by companies for student internship onboarding.",
+    "keywords": ["noc", "no objection certificate", "internship letter", "internship support", "training letter"]
+  },
+  {
+    "id": 31,
+    "category": "Library",
+    "question": "What are the opening and closing timings of the library?",
+    "answer": "The central library is open from 8:00 AM to 8:00 PM on working days. During semester examination periods, operating hours are extended until 10:00 PM.",
+    "keywords": ["library", "library timing", "opening hours", "reading room", "library books", "exam timings library"]
+  },
+  {
+    "id": 32,
+    "category": "Library",
+    "question": "How many books can a student borrow at a time?",
+    "answer": "Undergraduate students can borrow up to 4 books for a period of 14 days, while postgraduate students and final year project leads can borrow up to 6 books.",
+    "keywords": ["borrow books", "book issue limit", "library card", "book renewal", "fine per day"]
+  },
+  {
+    "id": 33,
+    "category": "Library",
+    "question": "Are digital e-journals and IEEE access available?",
+    "answer": "Yes, the digital library section provides free access to IEEE Xplore, ScienceDirect, Springer, e-books, and NPTEL online lecture video repositories.",
+    "keywords": ["e-library", "ieee", "sciencedirect", "nptel", "e-books", "journals", "online library"]
+  },
+  {
+    "id": 34,
+    "category": "Hostel",
+    "question": "Are separate hostel facilities available for boys and girls?",
+    "answer": "Yes, our campus provides safe, fully furnished separate residential hostels for male and female students with 24/7 security, Wi-Fi, and mess dining facilities.",
+    "keywords": ["hostel", "boys hostel", "girls hostel", "accommodation", "dormitory", "hostel rooms", "residence"]
+  },
+  {
+    "id": 35,
+    "category": "Hostel",
+    "question": "What is the hostel fee and mess menu system?",
+    "answer": "Hostel fees cover room rent, maintenance, and food. The mess menu is decided periodically by a student mess committee to ensure nutritious vegetarian and non-vegetarian options.",
+    "keywords": ["hostel fee", "mess fee", "mess menu", "food quality", "dining hall", "rent"]
+  },
+  {
+    "id": 36,
+    "category": "Hostel",
+    "question": "What are the curfew timings and outing rules for hostellers?",
+    "answer": "Hostel curfew is 8:30 PM. Outing permissions or leave applications must be authorized by the Hostel Warden through the parent-approved gate pass portal.",
+    "keywords": ["curfew", "hostel timing", "outing gate pass", "warden permission", "night outing", "rules"]
+  },
+  {
+    "id": 37,
+    "category": "Transport",
+    "question": "Is college bus transport available across the city?",
+    "answer": "Yes, a fleet of college buses covers all major routes across the city and surrounding areas. Detailed route maps and pickup schedules are published annually.",
+    "keywords": ["transport", "bus", "college bus", "route map", "pickup point", "commute", "travel"]
+  },
+  {
+    "id": 38,
+    "category": "Transport",
+    "question": "How can I register for the college bus pass?",
+    "answer": "Students can apply for a bus pass at the Transport Desk by paying the semester bus fee and submitting a passport photograph.",
+    "keywords": ["bus pass", "transport fee", "bus registration", "bus id card"]
+  },
+  {
+    "id": 39,
+    "category": "Clubs",
+    "question": "What technical and cultural clubs can students join?",
+    "answer": "Students can join various clubs including Coding Club, Robotics Society, IEEE Student Branch, Cultural & Drama Club, Music Club, Sports Association, and Eco Club.",
+    "keywords": ["clubs", "student clubs", "coding club", "robotics", "cultural club", "extracurricular", "societies"]
+  },
+  {
+    "id": 40,
+    "category": "Events",
+    "question": "When are annual cultural and technical fests organized?",
+    "answer": "The annual national technical symposium is organized in February, followed by the grand annual cultural fest in March, featuring competitions, workshops, and concerts.",
+    "keywords": ["events", "cultural fest", "tech fest", "annual fest", "symposium", "college event", "competitions"]
+  },
+  {
+    "id": 41,
+    "category": "Faculty",
+    "question": "What are the qualifications of the teaching faculty?",
+    "answer": "Our faculty members hold M.Tech and Ph.D. degrees from prestigious institutes, with extensive teaching, research publication, and industrial consultancy experience.",
+    "keywords": ["faculty", "teachers", "professors", "qualifications", "phd", "teaching staff"]
+  },
+  {
+    "id": 42,
+    "category": "Timetable",
+    "question": "Where can I download the class academic timetable?",
+    "answer": "Class timetables for all departments and semesters are uploaded to the student portal and displayed on class notice boards at the start of each semester.",
+    "keywords": ["timetable", "class schedule", "lecture timing", "routine", "periods"]
+  },
+  {
+    "id": 43,
+    "category": "Certificates",
+    "question": "How can I apply for Bonafide Certificate, TC, or Grade Transcripts?",
+    "answer": "Applications for Bonafide certificates, Transfer Certificates, or official Transcripts can be submitted online via the Administrative Student Help Desk.",
+    "keywords": ["bonafide certificate", "transfer certificate", "transcripts", "degree certificate", "apply certificate", "conduct certificate"]
+  },
+  {
+    "id": 44,
+    "category": "General",
+    "question": "Does the college campus have Wi-Fi and medical facilities?",
+    "answer": "Yes, the entire campus has high-speed Wi-Fi coverage. A campus health center with a full-time medical officer and first-aid facility is available 24/7.",
+    "keywords": ["wifi", "internet", "medical", "doctor", "health center", "first aid", "campus facilities", "canteen"]
+  },
+  {
+    "id": 45,
+    "category": "General",
+    "question": "What sports and gymnasium facilities are available on campus?",
+    "answer": "Campus facilities include a cricket ground, football field, basketball and volleyball courts, indoor badminton courts, table tennis, and a well-equipped gymnasium.",
+    "keywords": ["sports", "gym", "gymnasium", "playground", "games", "badminton", "cricket", "fitness"]
+  }
+]

@@ -1,0 +1,23 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment
+.env
+venv/
+env/
+ENV/
+
+# Project output & uploads (keep folder structure)
+uploads/*
+!uploads/.gitkeep
+output/*
+!output/.gitkeep
+models/*.pt
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
